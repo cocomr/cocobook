@@ -25,7 +25,15 @@ The full listing is the following:
 
 ## RGB Camera Sources
 
-Two main RGB source:
+Overall we can consider the following RGB Camera Sources:
+
+* Core RGB Sources: OpenCV / GStreamer
+* Additional Sources \(in this section\)
+* Any RGB-D Camera \(see later\)
+* ROS imported RGB Camera \(in this section\)
+* End-points of the Decompression components \(see later\) 
+
+Two main RGB source are available
 
 * OpenCV based: image\_source
 * GStreamer based: gstreamer\_source
@@ -62,14 +70,14 @@ Example of GStreamer source with the pipeline specified. Note that "appsink name
         video/x-raw,width=$(arg width),height=$(arg height),format=GRAY8 !  
         appsink name=sink" if="$(arg gray)"/>
     </attributes>
-</component> 
+</component>
 ```
 
 Additional we have the following three sources:
 
 * Video 4 Linux Native
 * Shared Memory
-* \[Dev\] libuv for accessing specific cameras under OSX
+* **\[Dev\]** libuv for accessing specific cameras under OSX
 
 **\[ROS\] **When using ROS we can read ROS Image sources as CoCo sources, specifying the RGB topic and the CameraInfo topic.
 
@@ -82,7 +90,6 @@ Additional we have the following three sources:
         <attribute name="camera_info_sub_topic" value="/cameras/right_hand_camera/camera_info" />
     </attributes>
 </component>
-
 ```
 
 
